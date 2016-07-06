@@ -2,6 +2,8 @@
 # required "rarfile"
 # # easy_install rarfile
 #
+# analyze file format
+#
 import os
 import imghdr
 import zipfile
