@@ -23,7 +23,7 @@ def scrape_price(html):
     soup = BeautifulSoup(html, "lxml")
     data = soup.find_all("td", class_ = "stoksPrice")
     price = data[1].string.replace(",", "")
-    return price
+    return int(float(price))
 
 
 def get_price(code):
@@ -31,4 +31,20 @@ def get_price(code):
     return scrape_price(data)
 
 
-print(get_price("6098"))
+# arg: filename includes stock_code list(newline separated)
+def get_price_list(filename):
+    f = open(filename, 'r')
+    l = f.readlines()
+    code_list=[]
+    for i in l:
+        i=i.strip()
+        if i:
+            code_list.append(i)
+    f.close()
+
+    ret = {}
+    for i in code_list:
+        ret.update({i: get_price(i)})
+    return ret
+
+print(get_price_list("./list.txt"))

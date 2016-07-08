@@ -22,5 +22,3 @@ def sort_asc_int(l):
     return sorted(l, key=int)
 
 
-li = ['94', '112', '103', '107']
-print(sort_desc_int(li))
