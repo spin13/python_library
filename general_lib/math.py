@@ -10,5 +10,3 @@ def lcm(a, b):
     return a/gcd(a,b)*b
 
 
-print(gcd(2,6))
-print(lcm(2,6))
